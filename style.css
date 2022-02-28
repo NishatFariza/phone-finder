@@ -14,3 +14,10 @@ body {
 .favorite-color {
   color: #3baed4;
 }
+
+/* main section style */
+#search-result {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2rem;
+}
