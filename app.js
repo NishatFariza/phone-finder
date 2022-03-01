@@ -3,9 +3,11 @@ const searchResultContainer = document.getElementById('search-result');
 const phoneDetails =document.getElementById('phone-details')
 
 const loadAllPhone = ()=>{
+  document.getElementById('spinner').style.display="block"
   if(isNaN(searchInput.value)==false || searchInput.value==""){
     searchInput.value="";
         alert('Enter a vaild input')
+        document.getElementById('spinner').style.display="none"
         
   }
   else{
@@ -17,11 +19,13 @@ const loadAllPhone = ()=>{
      .then(res => res.json())
      .then(data =>{
        if(data.status ==false){
+        document.getElementById('spinner').style.display="none"
          document.getElementById('error-text').style.display="block";
             
        }
        else{
          searchPhone(data.data)
+         document.getElementById('spinner').style.display="none"
         
        }
  
@@ -73,7 +77,7 @@ const displayPhoneDetails = details =>{
       playerDetailsContainer.classList.add('player-style')
       const {name, image, brand, mainFeatures, others}= details;
       if(details.releaseDate==""){
-        details.releaseDate="Relase date is comming soon.";
+        details.releaseDate="Comming soon...";
       }
       playerDetailsContainer.innerHTML=`
          <div class="text-center w-100">
@@ -81,12 +85,12 @@ const displayPhoneDetails = details =>{
           </div>
           <div class="text-center">
             <div class="card-body">
-              <h4 class="card-title mb-3">${brand}</h4>
-              <h3 class="card-title favorite-color mb-3 fs-2"> ${name}</h3>
-              <h5 class="card-text">
+              <h4 class="card-title mt-3">${brand}</h4>
+              <h3 class="card-title favorite-color mt-2 phone-title fw-bold"> ${name}</h3>
+              <h5 class="card-text my-4">
                 ReleaseDate: ${details.releaseDate}
               </h5>
-              <p class="card-text">
+              <p class="card-text fw-bold">
                 MainFeatures:
                 <ul  class="list-unstyled">
                 <li>Chipset: <span class="text-muted">${mainFeatures.chipSet}</span></li>
@@ -104,9 +108,9 @@ const displayPhoneDetails = details =>{
       if(details.others != undefined){
        const otherDiv = document.createElement('div')
        otherDiv.innerHTML=`
-       <h5 class="card-text">
+       <p class="card-text text-center text-black fw-bold">
        Others:
-       <ul class="list-unstyled">
+       <ul class="list-unstyled text-center">
        <li>Bluetooth: <span class="text-muted">${others.Bluetooth}</span></li>
        <li>GPS: <span class="text-muted">${others.GPS}</span></li>
        <li>NFC: <span class="text-muted">${others.NFC}</span></li>
@@ -114,7 +118,7 @@ const displayPhoneDetails = details =>{
        <li>USB: <span class="text-muted">${others.USB}</span></li>
        <li>WLAN: <span class="text-muted">${others.WLAN}</span></li>
        </ul>
-     </h5> 
+     </p> 
        `;
        playerDetailsContainer.appendChild(otherDiv)
 

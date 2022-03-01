@@ -11,6 +11,13 @@ body {
 #hero-title {
   font-size: 4rem;
 }
+#spinner {
+  display: none;
+}
+
+.phone-title {
+  font-size: 3rem;
+}
 .favorite-color {
   color: #3baed4;
 }
@@ -29,6 +36,9 @@ body {
 .player-style {
   width: 70%;
   margin: 0 auto;
+  margin-top: 4rem;
   border: 2px solid #ddd;
   padding: 2rem;
+  border-radius: 2rem;
+  box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%);
 }
