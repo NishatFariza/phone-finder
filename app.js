@@ -69,6 +69,7 @@ const phoneSlugUrl = slug =>{
     .then(data => displayPhoneDetails(data.data))
 }
 
+
 const displayPhoneDetails = details =>{
     console.log(details)
     phoneDetails.textContent="";
@@ -81,7 +82,7 @@ const displayPhoneDetails = details =>{
       }
       playerDetailsContainer.innerHTML=`
          <div class="text-center w-100">
-            <img  class="img-fluid rounded w-25 mt-3" src="${image}"/>
+            <img  class="img-fluid rounded-lg w-25 mt-3" src="${image}"/>
           </div>
           <div class="text-center">
             <div class="card-body">
@@ -94,10 +95,12 @@ const displayPhoneDetails = details =>{
                 MainFeatures:
                 <ul  class="list-unstyled">
                 <li>Chipset: <span class="text-muted">${mainFeatures.chipSet}</span></li>
-                <li>Display size: <span class="text-muted" class="text-muted">${mainFeatures.displaySize}</span></li>
-                <li>Memory: <span class="text-muted" class="text-muted">${mainFeatures.memory}</span></li>
-                <li>Storage: <span class="text-muted" class="text-muted">${mainFeatures.storage}</span></li>
-                <li>Sensors: <span class="text-muted" class="text-muted">${mainFeatures.sensors}</span></li>
+                <li>Display size: <span class="text-muted">${mainFeatures.displaySize}</span></li>
+                <li>Memory: <span class="text-muted">${mainFeatures.memory}</span></li>
+                <li>Storage: <span class="text-muted">${mainFeatures.storage}</span></li>
+
+                <li>Sensors: <span class="text-muted">${mainFeatures.sensors.map(item =>item).join('')}</span></li>
+               
                 </ul>
               </p>
             </div>
@@ -126,4 +129,5 @@ const displayPhoneDetails = details =>{
       }
 }
 
-
+/* <li>Sensors: <span class="text-muted text-wrap">${mainFeatures.sensors}</span></li> */
+/* <li>Storage: <span class="text-muted">${mainFeatures.sensors[0]}, ${mainFeatures.sensors[1]}, ${mainFeatures.sensors[2]}, ${mainFeatures.sensors[3]}, ${mainFeatures.sensors[4]}, ${mainFeatures.sensors[5]}</span></li> */
