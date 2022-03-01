@@ -42,3 +42,29 @@ body {
   border-radius: 2rem;
   box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%);
 }
+
+#phone-details {
+  width: 70%;
+}
+
+@media (max-width: 600px) {
+  #search-result {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 2rem;
+  }
+  .container {
+    max-width: 100%;
+  }
+
+  #hero-title {
+    font-size: 3rem;
+  }
+  #phone-details {
+    width: 100%;
+  }
+
+  .player-style {
+    width: 100%;
+  }
+}
