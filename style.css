@@ -15,9 +15,20 @@ body {
   color: #3baed4;
 }
 
+/* error text style */
+#error-text {
+  display: none;
+}
+
 /* main section style */
 #search-result {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 2rem;
+}
+.player-style {
+  width: 70%;
+  margin: 0 auto;
+  border: 2px solid #ddd;
+  padding: 2rem;
 }
