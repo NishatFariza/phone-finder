@@ -81,7 +81,7 @@ const displayPhoneDetails = details =>{
       }
       playerDetailsContainer.innerHTML=`
          <div class="text-center w-100">
-            <img  class="img-fluid rounded w-25" src="${image}"/>
+            <img  class="img-fluid rounded w-25 mt-3" src="${image}"/>
           </div>
           <div class="text-center">
             <div class="card-body">
