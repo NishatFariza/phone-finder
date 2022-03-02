@@ -66,6 +66,7 @@ const phoneSlugUrl = slug =>{
 
 
 const displayPhoneDetails = details =>{
+    window.scrollTo(0, 300);
     console.log(details)
     phoneDetails.textContent="";
       const phoneDetailsContainer =document.createElement('div');
