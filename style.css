@@ -4,7 +4,34 @@ body {
   font-weight: 500;
 }
 
+:root {
+  --primary: #888;
+  --bg-color: #fff;
+  --white: #fff;
+}
 /* header style  */
+.header {
+  width: 40%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-color {
+  background-color: var(--primary) !important;
+  color: var(--white) !important;
+  font-weight: 500 !important;
+}
+
+.search-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  align-items: stretch;
+}
+
 #header {
   background-color: #2f538a;
 }
@@ -33,20 +60,22 @@ body {
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 2rem;
 }
-.player-style {
+.phone-style {
   width: 70%;
   margin: 0 auto;
   margin-top: 4rem;
   border: 2px solid #ddd;
   padding: 2rem;
   border-radius: 2rem;
-  box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%);
+  box-shadow: rgb(0 0 0 / 40%) 0px 2px 4px, rgb(0 0 0 / 30%) 0px 7px 13px -3px,
+    rgb(0 0 0 / 20%) 0px -3px 0px inset;
 }
 
 #phone-details {
-  width: 70%;
+  width: 80%;
 }
 
+/* responsive by media query */
 @media (max-width: 600px) {
   #search-result {
     display: grid;
@@ -66,5 +95,16 @@ body {
 
   .phone-style {
     width: 100%;
+  }
+  .phone-title {
+    font-size: 2rem;
+  }
+  .search-wrapper {
+    flex-direction: column;
+  }
+  button#search-button {
+    width: 40%;
+    margin: auto;
+    margin-top: 1rem;
   }
 }

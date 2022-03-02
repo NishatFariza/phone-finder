@@ -24,26 +24,21 @@
         <p class="text-white fs-4">
           Find Your <span class="favorite-color fw-bold">Favorite Phone</span>
         </p>
-        <div class="w-75 m-auto">
-          <div class="input-group my-5">
-            <input
-              id="search-input"
-              type="text"
-              class="form-control py-3"
-              placeholder="Search Your Phone"
-              aria-label="Recipient's username"
-              aria-describedby="button-addon2"
-            />
-            <button
-              id="search-button"
-              onclick="loadAllPhone()"
-              class="btn btn-outline-secondary text-white px-5"
-              type="button"
-              id="button-addon2"
-            >
-              Search
-            </button>
-          </div>
+        <div class="my-5 w-75 m-auto search-wrapper">
+          <input
+            id="search-input"
+            type="text"
+            class="form-control py-3"
+            placeholder="Search Your Phone"
+          />
+          <button
+            id="search-button"
+            onclick="loadAllPhone()"
+            class="btn btn-color px-4"
+            type="submit"
+          >
+            Search
+          </button>
         </div>
       </div>
     </header>

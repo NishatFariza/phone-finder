@@ -2,8 +2,10 @@ const searchInput =document.getElementById('search-input');
 const searchResultContainer = document.getElementById('search-result');
 const phoneDetails =document.getElementById('phone-details')
 
+//  all data load 
 const loadAllPhone = ()=>{
   document.getElementById('spinner').style.display="block"
+  // error handle and all load
   if(isNaN(searchInput.value)==false || searchInput.value==""){
     searchInput.value="";
         alert('Enter a vaild input')
@@ -37,11 +39,7 @@ const loadAllPhone = ()=>{
     
 }
 
-// loadAllPhone()
-
-const searchPhone = (phones) =>{
-    // console.log(phones)
-    // console.log(searchValue); 
+const searchPhone = (phones) =>{ 
     const searchResultContainer = document.getElementById('search-result');
     const topTwentyPhone =phones.slice(0,20)
     topTwentyPhone.forEach(phone => {
@@ -61,7 +59,7 @@ const searchPhone = (phones) =>{
     
 }
 
-
+// load sinlge phone data 
 const phoneSlugUrl = slug =>{
     const slugUrl =(`https://openapi.programming-hero.com/api/phone/${slug}`)
     fetch(slugUrl)
@@ -73,14 +71,14 @@ const phoneSlugUrl = slug =>{
 const displayPhoneDetails = details =>{
     console.log(details)
     phoneDetails.textContent="";
-        // console.log(phoneDetails);
-      const playerDetailsContainer =document.createElement('div');
-      playerDetailsContainer.classList.add('player-style')
-      const {name, image, brand, mainFeatures, others}= details;
-      if(details.releaseDate==""){
-        details.releaseDate="Comming soon...";
-      }
-      playerDetailsContainer.innerHTML=`
+      const phoneDetailsContainer =document.createElement('div');
+      phoneDetailsContainer.classList.add('phone-style')
+      const {name, image, brand, mainFeatures}= details;
+      console.log(details)
+      const sensors = mainFeatures.sensors;
+      const showSensor = sensors.map((sensor) => sensor +" ")
+      
+      phoneDetailsContainer.innerHTML=`
          <div class="text-center w-100">
             <img  class="img-fluid rounded-lg w-25 mt-3" src="${image}"/>
           </div>
@@ -89,7 +87,7 @@ const displayPhoneDetails = details =>{
               <h4 class="card-title mt-3">${brand}</h4>
               <h3 class="card-title favorite-color mt-2 phone-title fw-bold"> ${name}</h3>
               <h5 class="card-text my-4">
-                ReleaseDate: ${details.releaseDate}
+                ReleaseDate: <span class="text-muted">${details.releaseDate ? details.releaseDate : "Comming Soon..."}</span>
               </h5>
               <p class="card-text fw-bold">
                 MainFeatures:
@@ -99,35 +97,32 @@ const displayPhoneDetails = details =>{
                 <li>Memory: <span class="text-muted">${mainFeatures.memory}</span></li>
                 <li>Storage: <span class="text-muted">${mainFeatures.storage}</span></li>
 
-                <li>Sensors: <span class="text-muted">${mainFeatures.sensors.map(item =>item).join('')}</span></li>
+                <li>Sensor: <span class="text-muted">${showSensor}</span></li>
                
                 </ul>
               </p>
             </div>
           </div>
       `;
-      phoneDetails.appendChild(playerDetailsContainer)
+      phoneDetails.appendChild(phoneDetailsContainer)
 
-      if(details.others != undefined){
+//others feature data
        const otherDiv = document.createElement('div')
        otherDiv.innerHTML=`
        <p class="card-text text-center text-black fw-bold">
        Others:
        <ul class="list-unstyled text-center">
-       <li>Bluetooth: <span class="text-muted">${others.Bluetooth}</span></li>
-       <li>GPS: <span class="text-muted">${others.GPS}</span></li>
-       <li>NFC: <span class="text-muted">${others.NFC}</span></li>
-       <li>Radio: <span class="text-muted">${others.Radio}</span></li>
-       <li>USB: <span class="text-muted">${others.USB}</span></li>
-       <li>WLAN: <span class="text-muted">${others.WLAN}</span></li>
+       <li>Bluetooth: <span class="text-muted">${details?.others?.Bluetooth ? details?.others?.Bluetooth : "Not Found"}</span></li>
+       <li>GPS: <span class="text-muted">${details?.others?.GPS ? details?.others?.GPS :"Comming Soon"}</span></li>
+       <li>NFC: <span class="text-muted">${details?.others?.NFC ? details?.others?.NFC : "Comming Soon"}</span></li>
+       <li>Radio: <span class="text-muted">${details?.others?.Radio ? details?.others?.Radio : "Not Found"}</span></li>
+       <li>USB: <span class="text-muted">${details?.others?.USB ? details?.others?.USB : "Comming Soon"}</span></li>
+       <li>WLAN: <span class="text-muted">${details?.others?.WLAN ? details?.others?.WLAN : "Not Found"}</span></li>
        </ul>
      </p> 
        `;
-       playerDetailsContainer.appendChild(otherDiv)
+       phoneDetailsContainer.appendChild(otherDiv)
 
 
       }
-}
 
-/* <li>Sensors: <span class="text-muted text-wrap">${mainFeatures.sensors}</span></li> */
-/* <li>Storage: <span class="text-muted">${mainFeatures.sensors[0]}, ${mainFeatures.sensors[1]}, ${mainFeatures.sensors[2]}, ${mainFeatures.sensors[3]}, ${mainFeatures.sensors[4]}, ${mainFeatures.sensors[5]}</span></li> */
