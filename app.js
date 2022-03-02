@@ -33,10 +33,7 @@ const loadAllPhone = ()=>{
  
      })
      searchInput.value="";
-  }
-  
-
-    
+  }    
 }
 
 const searchPhone = (phones) =>{ 
@@ -122,7 +119,5 @@ const displayPhoneDetails = details =>{
      </p> 
        `;
        phoneDetailsContainer.appendChild(otherDiv)
-
-
       }
 
