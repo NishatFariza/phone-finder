@@ -28,6 +28,7 @@ const loadAllPhone = ()=>{
        else{
          searchPhone(data.data)
          document.getElementById('spinner').style.display="none"
+         document.getElementById('error-text').style.display="none";
         
        }
  
