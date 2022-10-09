@@ -49,6 +49,14 @@ body {
   color: #3baed4;
 }
 
+.search-input{
+  border-radius: 6px 0 0 6px;
+}
+.search-btn{
+  border-radius: 0 6px 6px 0;
+  background-color: #ee0f0f !important ;
+}
+
 /* error text style */
 #error-text {
   display: none;
